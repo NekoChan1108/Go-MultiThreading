@@ -25,15 +25,15 @@ var (
 
 // parseTxt2Array 将txt文件内容解析为数组
 /**
-*@param data txt文件内容
-*@return 解析后的数组
- */
+@param textChan 文本文件的管道
+@param metarChan METAR数据管道
+*/
 func parseTxt2Array(textChan chan string, metarChan chan []string) {
 	//从管道里一直读
 	for txt := range textChan {
 		// 按行分割数据
-		splitData := strings.Split(txt, "\r\n") //windows
-		//splitData = strings.Split(txt, "\n")    //linux mac
+		//splitData := strings.Split(txt, "\r\n") //windows
+		splitData := strings.Split(txt, "\n") //linux mac
 		// 创建一个空数组用于存储返回结果
 		metarSlice := make([]string, 0)
 		//创建一个字符串来保存每次的有效数据
@@ -67,6 +67,10 @@ func parseTxt2Array(textChan chan string, metarChan chan []string) {
 }
 
 // extractWindDirection 根据筛选后的METAR数据提取出风向
+/**
+@param metarChan METAR数据管道
+@param windDirectionChan 风向管道
+*/
 func extractWindDirection(metarChan, windDirectionChan chan []string) {
 	for metarSlice := range metarChan {
 		//创建一个空数组存储符合条件的风向数据
@@ -87,6 +91,10 @@ func extractWindDirection(metarChan, windDirectionChan chan []string) {
 }
 
 // mineWindDirection 挖掘方位扇区的风数
+/**
+@param windDirectionChan 风向管道
+@param windDistChan 风数管道
+*/
 func mineWindDirection(windDirectionChan chan []string, windDistChan chan [8]int) {
 	for winds := range windDirectionChan {
 		for _, wind := range winds {
