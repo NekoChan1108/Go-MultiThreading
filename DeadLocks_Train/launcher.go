@@ -48,7 +48,7 @@ func main() {
 	go MoveTrain(trains[0], 300, []*Crossing{&Crossing{Intersection: intersections[0], Position: 125}, &Crossing{Intersection: intersections[1], Position: 175}})
 	go MoveTrain(trains[1], 300, []*Crossing{&Crossing{Intersection: intersections[1], Position: 125}, &Crossing{Intersection: intersections[2], Position: 175}})
 	go MoveTrain(trains[2], 300, []*Crossing{&Crossing{Intersection: intersections[2], Position: 125}, &Crossing{Intersection: intersections[3], Position: 175}})
-	go MoveTrain(trains[3], 300, []*Crossing{&Crossing{Intersection: intersections[3], Position: 375}, &Crossing{Intersection: intersections[0], Position: 175}})
+	go MoveTrain(trains[3], 300, []*Crossing{&Crossing{Intersection: intersections[3], Position: 125}, &Crossing{Intersection: intersections[0], Position: 175}})
 	//启动绘制
 	ebiten.SetWindowSize(ScreenWidth*2, ScreenHeight*2)
 	ebiten.SetWindowTitle("Train DeadLock Simulator")
