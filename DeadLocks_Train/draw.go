@@ -86,9 +86,13 @@ func drawIntersection(screen *ebiten.Image, intersection *Intersection, x int, y
  * @param yPos 横车Y坐标
  */
 func drawXTrain(screen *ebiten.Image, id int, dir int, start int, yPos int) {
+	//计算火车起始位置
 	s := start + (dir * (trains[id].Front - trains[id].TrainLength))
 	e := start + (dir * trains[id].Front)
 	for i := math.Min(float64(s), float64(e)); i <= math.Max(float64(s), float64(e)); i++ {
+		//绘制横车
+		//纵坐标加减1是为了突出横车视觉效果明显防止和track重合看起来不方便
+		//横坐标加减dir是确定横车方向
 		screen.Set(int(i)-dir, yPos-1, colours[id])
 		screen.Set(int(i), yPos, colours[id])
 		screen.Set(int(i)-dir, yPos+1, colours[id])
@@ -104,9 +108,11 @@ func drawXTrain(screen *ebiten.Image, id int, dir int, start int, yPos int) {
  * @param xPos 竖车X坐标
  */
 func drawYTrain(screen *ebiten.Image, id int, dir int, start int, xPos int) {
+	// 计算火车起始位置
 	s := start + (dir * (trains[id].Front - trains[id].TrainLength))
 	e := start + (dir * trains[id].Front)
 	for i := math.Min(float64(s), float64(e)); i <= math.Max(float64(s), float64(e)); i++ {
+		//绘制竖车
 		screen.Set(xPos-1, int(i)-dir, colours[id])
 		screen.Set(xPos, int(i), colours[id])
 		screen.Set(xPos+1, int(i)-dir, colours[id])
