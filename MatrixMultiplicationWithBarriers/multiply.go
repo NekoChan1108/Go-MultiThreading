@@ -41,7 +41,7 @@ func workOutRow(row int) {
 				result[row][col] += matrixA[row][i] * matrixB[i][col]
 			}
 		}
-		//wg.Complete()       //上一个线程已经完成计算
+		//wg.Done()       //上一个线程已经完成计算
 		//condLock.Wait() //解锁等待下一个线程开始计算
 
 		//矩阵计算结束
