@@ -33,7 +33,7 @@ func DrawIntersections(screen *ebiten.Image) {
 	drawIntersection(screen, intersections[3], 145, 175)
 }
 
-// DrawTracks 绘制轨迹 对应readme里的四根线
+// DrawTracks 绘制铁轨 对应readme里的四根线
 /**
  * @param screen 屏幕
  */

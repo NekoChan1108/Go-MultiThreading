@@ -7,7 +7,7 @@ import (
 
 var (
 	Money = 100
-	//lock  sync.Mutex
+	//lock  Sync.Mutex
 )
 
 func Stingy() {

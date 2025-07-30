@@ -2,7 +2,9 @@ package main
 
 import (
 	. "Go-MultiThreading/DeadLocks_Train/common"
-	. "Go-MultiThreading/DeadLocks_Train/deadlock"
+	//. "Go-MultiThreading/DeadLocks_Train/deadlock"
+	//. "Go-MultiThreading/DeadLocks_Train/hierarchy"
+	. "Go-MultiThreading/DeadLocks_Train/arbitrator"
 	"github.com/hajimehoshi/ebiten/v2"
 	"log"
 	"sync"
